@@ -2,16 +2,16 @@ import { NewsList } from '@/components/NewsList'
 import { categories } from '@/utils/categories'
 import { notFound } from 'next/navigation'
 
-
 function capitalize(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
 }
 
-export default function CategoryPage({
-  params,
-}: {
+type Props = {
   params: { name: string }
-}) {
+  searchParams: { [key: string]: string | string[] | undefined }
+}
+
+export default async function CategoryPage({ params }: Props) {
   const category = params.name.toLowerCase() // Ensure case-insensitive matching
 
   const validCategories = categories.map((c) => c.name.toLowerCase())
