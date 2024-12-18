@@ -2,11 +2,10 @@ import { NewsList } from '@/components/NewsList'
 import { categories } from '@/utils/categories'
 import { notFound } from 'next/navigation'
 
-export function capitalize(str: string): string {
+
+function capitalize(str: string): string {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase()
 }
-
-
 
 export default function CategoryPage({
   params,
